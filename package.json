@@ -1,0 +1,22 @@
+{
+  "name": "web-site-timeline",
+  "version": "0.0.1",
+  "scripts": {
+    "typings": "typings",
+    "postinstall": "typings install"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.8",
+    "systemjs": "0.19.22",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.5.15"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "typescript": "^1.8.2",
+    "typings": "^0.6.8"
+  }
+}

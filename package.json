@@ -15,7 +15,14 @@
     "zone.js": "0.5.15"
   },
   "devDependencies": {
+    "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.12.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "ts-node": "^0.5.5",
     "typescript": "^1.8.2",
     "typings": "^0.6.8"
   }

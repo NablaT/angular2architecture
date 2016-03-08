@@ -1,7 +1,7 @@
 {
   "ambientDependencies": {
     "del": "github:DefinitelyTyped/DefinitelyTyped/del/del.d.ts#9027703c0bd831319dcdf7f3169f7a468537f448",
-    "es6-promise": "github:DefinitelyTyped/DefinitelyTyped/es6-promise/es6-promise.d.ts#e1699c41087960df7678f413312213fb1f980307",
+    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
     "glob": "github:DefinitelyTyped/DefinitelyTyped/glob/glob.d.ts#a14d724826174d1669d4df04c80f4838b7e71fdf",
     "gulp": "github:DefinitelyTyped/DefinitelyTyped/gulp/gulp.d.ts#fbdc1b91125a87e62be3803f58aabb176cc2fd50",
     "gulp-load-plugins": "github:DefinitelyTyped/DefinitelyTyped/gulp-load-plugins/gulp-load-plugins.d.ts#e081148d88b857d66509e3b46edbd08b3f75f96a",

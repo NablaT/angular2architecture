@@ -9,8 +9,8 @@ let bs = browserSync.create('Server');
  */
 function init(){
     bs.init({
-        server: {
-            baseDir: "./dist"
+        server : {
+            baseDir : './dist'
         }
     });
 }

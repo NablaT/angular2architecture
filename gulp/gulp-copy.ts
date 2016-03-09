@@ -8,7 +8,8 @@ let vendorJS = [
     'angular2/bundles/angular2-polyfills.js',
     'systemjs/dist/system.src.js',
     'rxjs/bundles/Rx.js',
-    'angular2/bundles/angular2.dev.js'
+    'angular2/bundles/angular2.dev.js',
+    'angular2/core.js'
 ];
 
 /**

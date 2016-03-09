@@ -26,7 +26,7 @@ function compile(filesArray, destDirectory) {
  * This function transpiles typescript files into the dist directory.
  */
 function dist() {
-    return compile(typings.concat(['src/**/*.e2e.ts']), './dist/');
+    return compile(typings.concat(['src/**/*.ts']), './dist/');
 }
 
 ///////////////////// Typescript Tasks /////////////////////

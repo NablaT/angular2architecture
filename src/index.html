@@ -17,10 +17,13 @@
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
+                          defaultJSExtensions: true,
                           packages: {
-                                  './': {
-                                  format: 'register',
-                                  defaultExtension: 'js'
+                              "angular2": {
+                                  "defaultExtension": false
+                              },
+                              "rxjs": {
+                                  "defaultExtension": false
                               }
                           }
                       });

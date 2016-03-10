@@ -1,6 +1,6 @@
 import * as gulp from 'gulp';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
-import * as browserSync from 'browser-sync';
+import {getBrowserSync} from '../browsersync';
 
 const plugins = <any>gulpLoadPlugins();
 
@@ -8,7 +8,7 @@ let _tsProject = plugins.typescript.createProject('tsconfig.json', {
     typescript: require('typescript')
 });
 
-let bs = browserSync.get('Server');
+let bs = getBrowserSync();
 
 let typings = ['manual-typings/manual-typings.d.ts', 'typings/browser.d.ts'];
 

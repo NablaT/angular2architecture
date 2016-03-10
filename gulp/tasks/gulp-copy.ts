@@ -20,7 +20,7 @@ function copyDist() {
     let vendor = gulp.src(vendorJS, {cwd: 'node_modules', base: 'node_modules'})
         .pipe(gulp.dest('dist/vendor/'));
 
-    let others = gulp.src(['**/*', '!**/*.ts'], {cwd: 'src'})
+    let others = gulp.src(['**/*', '!**/*.ts', '!**/*.scss'], {cwd: 'src'})
         .pipe(gulp.dest('dist/'));
 
     return merge(vendor, others);

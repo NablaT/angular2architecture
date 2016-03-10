@@ -29,7 +29,16 @@ function scriptsWatch() {
 }
 
 /**
- * This function watches all files except typescript and scss files and copies only files changed.
+ * This function watches sass files.
+ */
+function sassWatch() {
+    let sass = ['src/**/*.scss'];
+    let tasks = ['sass:dist'];
+    watch(sass, tasks);
+}
+
+/**
+ * This function watches all files except typescript and sass files and copies only files changed.
  */
 function othersWatch() {
     let files = ['src/**/*', '!src/**/*.ts', '!src/**/*.scss'];
@@ -45,7 +54,8 @@ function othersWatch() {
 ///////////////////// Watch Tasks /////////////////////
 
 gulp.task('watch:scripts', scriptsWatch);
+gulp.task('watch:sass', sassWatch);
 gulp.task('watch:others', othersWatch);
 gulp.task('watch', callback =>
-    runSequence(['watch:scripts', 'watch:others'], callback)
+    runSequence(['watch:scripts', 'watch:sass', 'watch:others'], callback)
 );

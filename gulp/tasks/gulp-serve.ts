@@ -1,8 +1,7 @@
 import * as gulp from 'gulp';
-import * as browserSync from 'browser-sync';
+import {getBrowserSync} from '../browsersync';
 
-// We can reuse this server in other files.
-let bs = browserSync.create('Server');
+let bs = getBrowserSync();
 
 /**
  * This function initiates the server.

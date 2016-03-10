@@ -1,13 +1,16 @@
 import * as gulp from 'gulp';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
+import * as browserSync from 'browser-sync';
 
 const plugins = <any>gulpLoadPlugins();
 
 let _tsProject = plugins.typescript.createProject('tsconfig.json', {
-    typescript : require('typescript')
+    typescript: require('typescript')
 });
 
-let typings = ['manual-typings/manual-typings.d.ts','typings/browser.d.ts'];
+let bs = browserSync.get('Server');
+
+let typings = ['manual-typings/manual-typings.d.ts', 'typings/browser.d.ts'];
 
 /**
  * This function transpiles typescript files.
@@ -19,7 +22,8 @@ function compile(filesArray, destDirectory) {
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.typescript(_tsProject))
         .pipe(plugins.sourcemaps.write('./'))
-        .pipe(gulp.dest(destDirectory));
+        .pipe(gulp.dest(destDirectory))
+        .pipe(bs.stream());
 }
 
 /**

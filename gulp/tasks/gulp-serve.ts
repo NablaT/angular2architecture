@@ -9,7 +9,10 @@ let bs = getBrowserSync();
 function init(){
     bs.init({
         server : {
-            baseDir : './dist'
+            baseDir : './dist',
+            routes: {
+                "/node_modules": "node_modules"
+            }
         }
     });
 }

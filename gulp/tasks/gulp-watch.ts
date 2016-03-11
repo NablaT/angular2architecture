@@ -38,10 +38,17 @@ function sassWatch() {
 }
 
 /**
+ * This function watches only the index.html because we need to inject dependencies after copying.
+ */
+function indexWatch (){
+    watch ('src/index.html', ['inject']);
+}
+
+/**
  * This function watches all files except typescript and sass files and copies only files changed.
  */
 function othersWatch() {
-    let files = ['src/**/*', '!src/**/*.ts', '!src/**/*.scss'];
+    let files = ['src/**/*', '!src/**/*.ts', '!src/**/*.scss', '!src/index.html'];
     gulp.watch(files, (event) => {
         console.log('File ' + event.path + ' was ' + event.type + ', copying it in dist and dist_tests folders');
         gulp.src(event.path, {base : 'src'})
@@ -55,7 +62,8 @@ function othersWatch() {
 
 gulp.task('watch:scripts', scriptsWatch);
 gulp.task('watch:sass', sassWatch);
+gulp.task('watch:index', indexWatch);
 gulp.task('watch:others', othersWatch);
 gulp.task('watch', callback =>
-    runSequence(['watch:scripts', 'watch:sass', 'watch:others'], callback)
+    runSequence(['watch:scripts', 'watch:sass', 'watch:index', 'watch:others'], callback)
 );

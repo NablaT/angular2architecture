@@ -2,7 +2,7 @@ import * as gulp from 'gulp';
 import * as del from 'del';
 
 /**
- * This function cleans files in dist_e2e directory.
+ * This function cleans files in dist directory.
  */
 function clean() {
     return del(['dist/**/*']);

@@ -11,7 +11,7 @@ gulp.task('build', callback =>
     runSequence('clean', ['copy:dist', 'ts:dist', 'sass:dist'], 'inject', 'server:init', callback)
 );
 
-var build = gulp.series('clean');
+/*var build = gulp.series('clean');
 export {build};
 
-export default build;
+export default build;*/

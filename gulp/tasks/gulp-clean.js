@@ -16,17 +16,17 @@ import {
  * @param {Function} callback - Callback function.
  */
 function clean (directory, callback) {
-    del(['{' + directory + ',' + directory + '/**/*}'], callback);
+    return del(['{' + directory + ',' + directory + '/**/*}'], callback);
 }
 
 ///////////////////// Clean Tasks /////////////////////
 
 gulp.task('clean:dev', (done) => {
-    clean(DEV_PATH, done);
+    return clean(DEV_PATH, done);
 });
 
 gulp.task('clean:prod', (done) => {
-    clean(PROD_PATH, done);
+    return clean(PROD_PATH, done);
 });
 
 gulp.task('clean:all', gulp.series('clean:dev', 'clean:prod', function (done) {

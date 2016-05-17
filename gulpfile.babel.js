@@ -1,8 +1,7 @@
-import * as gulp from 'gulp';
-import * as runSequence from 'run-sequence';
-import * as requireDir from 'require-dir';
+import gulp from 'gulp';
+import HubRegistry from 'gulp-hub';
 
-requireDir('./gulp/tasks');
+const hub = new HubRegistry(['gulp/tasks/*.js']);
 
 gulp.task('serve', callback =>
     runSequence('build', 'watch', callback)
@@ -11,3 +10,8 @@ gulp.task('serve', callback =>
 gulp.task('build', callback =>
     runSequence('clean', ['copy:dist', 'ts:dist', 'sass:dist'], 'inject', 'server:init', callback)
 );
+
+var build = gulp.series('clean');
+export {build};
+
+export default build;

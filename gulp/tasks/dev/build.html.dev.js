@@ -3,7 +3,7 @@ import path from 'path';
 import {
     DEV_DIR,
     APP_SRC
-} from '../gulp.conf';
+} from '../../gulp.conf';
 
 gulp.task('build:html:dev', () => {
     return gulp.src(path.join(APP_SRC, '**', '*.html'))

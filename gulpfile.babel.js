@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import HubRegistry from 'gulp-hub';
 
-const hub = new HubRegistry(['gulp/tasks/*.js']);
+const hub = new HubRegistry(['gulp/tasks/**/*.js']);
 
 gulp.task('build:dev',
           gulp.series('clean:dev',

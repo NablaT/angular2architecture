@@ -3,7 +3,7 @@ import path from 'path';
 import {
     DEV_DIR,
     ASSETS_SRC
-} from '../gulp.conf';
+} from '../../gulp.conf';
 
 gulp.task('build:assets:dev', () => {
     return gulp.src(path.join(ASSETS_SRC, '**', '*'))

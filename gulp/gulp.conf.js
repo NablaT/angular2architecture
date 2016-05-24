@@ -24,9 +24,8 @@ export const LIBS_DEPENDENCIES = [
 
 ///////////////////// Directories Paths /////////////////////
 
-const DIST_DIR = 'dist';
-const SRC_DIR  = 'src';
-
+export const DIST_DIR   = 'dist';
+export const SRC_DIR    = 'src';
 export const APP_SRC    = path.join(SRC_DIR, 'app');
 export const STYLES_SRC = path.join(SRC_DIR, 'styles');
 export const ASSETS_SRC = path.join(SRC_DIR, 'assets');

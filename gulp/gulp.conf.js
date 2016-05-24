@@ -4,6 +4,8 @@
  * This file is used by gulp tasks.
  */
 
+import path from 'path';
+
 /**
  * @constant {String[]} Constant containing all path to shims dependencies we want in the project.
  */
@@ -20,24 +22,19 @@ export const LIBS_DEPENDENCIES = [
     'node_modules/systemjs/dist/system.src.js'
 ];
 
-/**
- * @constant {String} The path of the development directory.
- */
-export const DEV_PATH = 'dist/dev';
+///////////////////// Directories Paths /////////////////////
 
-/**
- * @constant {String} The path of the production directory.
- */
-export const PROD_PATH = 'dist/prod';
+const DIST_DIR   = 'dist';
+const SRC_DIR    = 'src';
+const APP_SRC    = path.join(SRC_DIR, 'app');
+const STYLES_SRC = path.join(SRC_DIR, 'styles');
+const ASSETS_SRC = path.join(SRC_DIR, 'assets');
 
-/**
- * @constant {String} Regular expression matching all files.
- */
-export const ALL_FILES = 'src/**/*';
+export const DEV_DIR  = path.join(DIST_DIR, 'dev');
+export const PROD_DIR = path.join(DIST_DIR, 'prod');
+export const TMP_DIR  = path.join(DIST_DIR, 'tmp');
 
-/**
- * @constant {String} Regular expression matching all typescript files.
- */
+export const ALL_FILES        = 'src/**/*';
 export const TYPESCRIPT_FILES = 'src/**/*.ts';
 
 /**

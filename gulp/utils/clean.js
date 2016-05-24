@@ -1,4 +1,5 @@
 import del from 'del';
+import {TMP_DIR} from '../gulp.conf';
 
 /**
  * This function deletes:
@@ -11,5 +12,5 @@ import del from 'del';
  * @param {Function} callback - Callback function.
  */
 export function clean (directory, callback) {
-    return del(['{' + directory + ',' + directory + '/**/*}'], callback);
+    return del(['{' + directory + ',' + directory + '/**/*}', TMP_DIR], callback);
 }

@@ -43,6 +43,8 @@ function mapPath (destinationDirectory) {
 
 /**
  * Transform the path of a dependency to its location within the `dist` directory.
+ *
+ * @param {String} destinationDirectory - The destination directory.
  */
 function transformPath (destinationDirectory) {
     return function (filepath) {

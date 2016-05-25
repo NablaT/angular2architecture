@@ -37,57 +37,27 @@ export function karma (destinationDirectory, singleRun, done) {
             'node_modules/zone.js/dist/fake-async-test.js',
 
             // RxJs.
-            {
-                pattern : 'node_modules/rxjs/**/*.js',
-                included: false,
-                watched : false
-            },
-            {
-                pattern : 'node_modules/rxjs/**/*.js.map',
-                included: false,
-                watched : false
-            },
+            {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
+            {pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false},
 
             // paths loaded via module imports
             // Angular itself
-            {
-                pattern : 'node_modules/@angular/**/*.js',
-                included: false,
-                watched : true
-            },
+            {pattern: 'node_modules/@angular/**/*.js', included: false, watched: true},
 
             // suppress annoying 404 warnings for map
-            {
-                pattern : 'node_modules/**/*.js.map',
-                included: false,
-                watched : false
-            },
+            {pattern: 'node_modules/**/*.js.map', included: false, watched: false},
 
-            {
-                pattern : destinationDirectory + '/**/*.js',
-                included: false,
-                watched : true
-            },
-            {
-                pattern : 'node_modules/systemjs/dist/system-polyfills.js',
-                included: false,
-                watched : false
-            }, // PhantomJS2 (and possibly others) might require it
+            {pattern: destinationDirectory + '/**/*.js', included: false, watched: true},
+
+            // PhantomJS2 (and possibly others) might require it
+            {pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false},
 
             // Shim for systemjs import in karma.
             'test-main.js',
 
             // paths to support debugging with source maps in dev tools
-            {
-                pattern : 'src/**/*.ts',
-                included: false,
-                watched : false
-            },
-            {
-                pattern : destinationDirectory + '/**/*.js.map',
-                included: false,
-                watched : false
-            },
+            {pattern: 'src/**/*.ts', included: false, watched: false},
+            {pattern: destinationDirectory + '/**/*.js.map', included: false, watched: false},
 
             {pattern: destinationDirectory + '/**/*.html', included: false, watched: true},
             {pattern: destinationDirectory + '/**/*.css', included: false, watched: true}

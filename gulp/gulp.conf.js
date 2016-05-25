@@ -10,7 +10,7 @@ import path from 'path';
  * @constant {String[]} Constant containing all path to shims dependencies we want in the project.
  */
 export const SHIMS_DEPENDENCIES = [
-    'node_modules/es6-shim/es6-shim.min.js'
+    'node_modules/core-js/client/shim.min.js'
 ];
 
 /**
@@ -36,6 +36,19 @@ export const TEMPLATE_DIR = path.join(DIST_DIR, 'template');
 
 export const ALL_FILES        = 'src/**/*';
 export const TYPESCRIPT_FILES = 'src/**/*.ts';
+
+const NPM_DEPENDENCIES = [
+    {src: 'node_modules/core-js/client/shim.min.js', inject: 'shims'},
+    {src: 'node_modules/zone.js/dist/zone.js', inject: 'libs'},
+    {src: 'node_modules/reflect-metadata/Reflect.js', inject: 'libs'},
+    {src: 'node_modules/systemjs/dist/system.src.js', inject: 'libs'}
+];
+
+const CSS_INJECTABLES = [
+    {src: path.join(STYLES_SRC, 'main.css'), inject: 'css'}
+];
+
+export const DEPENDENCIES = NPM_DEPENDENCIES.concat(CSS_INJECTABLES);
 
 /**
  * @constant {String} Regular expression matching all sass files.

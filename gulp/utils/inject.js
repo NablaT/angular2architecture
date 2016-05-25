@@ -11,7 +11,7 @@ const plugins = gulpLoadPlugins();
 
 export function inject (name, destinationDirectory) {
     return plugins.inject(gulp.src(getInjectablesDependenciesRef(name, destinationDirectory), {read: false}),
-                          {name, transform: transformPath()})
+                          {name, transform: transformPath(destinationDirectory)})
 }
 
 /**
@@ -44,8 +44,11 @@ function mapPath (destinationDirectory) {
 /**
  * Transform the path of a dependency to its location within the `dist` directory.
  */
-function transformPath () {
+function transformPath (destinationDirectory) {
     return function (filepath) {
+        if (filepath.startsWith(slash('/' + destinationDirectory))) {
+            filepath = filepath.replace(slash('/' + destinationDirectory) + '/', '');
+        }
         arguments[0] = path.join(filepath) + `?${Date.now()}`;
         return slash(plugins.inject.transform.apply(plugins.inject.transform, arguments));
     };

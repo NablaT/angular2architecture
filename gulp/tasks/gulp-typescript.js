@@ -6,7 +6,7 @@ import {
     TYPESCRIPT_FILES,
     SPEC_FILES
 } from '../gulp.conf';
-import { getBrowserSync } from '../browsersync';
+import { getBrowserSync } from '../utils/browsersync';
 
 const plugins = gulpLoadPlugins();
 

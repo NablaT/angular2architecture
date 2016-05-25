@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import path from 'path';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import {getBrowserSync} from '../browsersync';
+import {getBrowserSync} from './browsersync';
 import {SRC_DIR} from '../gulp.conf';
 
 const plugins = gulpLoadPlugins();

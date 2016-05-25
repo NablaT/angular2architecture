@@ -5,7 +5,7 @@ import {
     PROD_PATH,
     SASS_FILES
 } from '../gulp.conf';
-import { getBrowserSync } from '../browsersync';
+import { getBrowserSync } from '../utils/browsersync';
 
 const plugins = gulpLoadPlugins();
 

@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import { getBrowserSync } from '../browsersync';
+import { getBrowserSync } from '../utils/browsersync';
 import {
     DEV_PATH,
     PROD_PATH,

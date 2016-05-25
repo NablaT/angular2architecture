@@ -9,7 +9,7 @@ import {
     SHIMS,
     LIBS
 } from '../gulp.conf';
-import { getBrowserSync } from '../browsersync';
+import { getBrowserSync } from '../utils/browsersync';
 
 const plugins = gulpLoadPlugins();
 

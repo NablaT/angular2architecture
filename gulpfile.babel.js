@@ -1,7 +1,10 @@
 import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
 import HubRegistry from 'gulp-hub';
 
 const hub = new HubRegistry(['gulp/tasks/**/*.js']);
+
+const plugins = gulpLoadPlugins();
 
 gulp.task('build:dev',
           gulp.series('clean:dev',
@@ -28,3 +31,5 @@ gulp.task('serve', gulp.series('build:dev', 'watch', function (done) {
 gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {
     done();
 }));
+
+gulp.task('karma:tdd:dev', plugins.shell.task(['start gulp karma:dev']));

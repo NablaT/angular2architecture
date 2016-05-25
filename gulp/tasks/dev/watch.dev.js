@@ -1,12 +1,8 @@
 import gulp from 'gulp';
+import path from 'path';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
-import {
-    INDEX,
-    ALL_FILES,
-    TYPESCRIPT_FILES,
-    SASS_FILES
-} from '../gulp.conf';
+import {SRC_DIR} from '../../gulp.conf';
 
 const plugins = gulpLoadPlugins();
 
@@ -26,19 +22,10 @@ function watch (filesArray, tasksArray) {
 }
 
 /**
- * This function watches typescript files.
- */
-function scriptsWatch () {
-    let scripts = [TYPESCRIPT_FILES];
-    let tasks   = ['ts:dev'];
-    watch(scripts, tasks);
-}
-
-/**
  * This function watches sass files.
  */
 function sassWatch () {
-    let sass  = [SASS_FILES];
+    let sass  = [];
     let tasks = ['sass:dev'];
     watch(sass, tasks);
 }
@@ -47,7 +34,7 @@ function sassWatch () {
  * This function watches only the INDEX file because we need to inject dependencies after copying.
  */
 function indexWatch () {
-    gulp.watch('src/' + INDEX, function (event) {
+    gulp.watch('src/', function (event) {
         console.log('File ' + event.path + ' was ' + event.type);
         gulp.series('copy:index', 'inject:dev', function (done) {
             done();
@@ -64,15 +51,27 @@ function indexWatch () {
  * </ul>
  */
 function othersWatch () {
-    const EXCLUDED_FILES = [
-        '!' + TYPESCRIPT_FILES,
-        '!' + SASS_FILES,
-        '!src/' + INDEX
-    ];
 
-    let files = [ALL_FILES].concat(EXCLUDED_FILES);
+    let files = [].concat(EXCLUDED_FILES);
     let tasks = ['copy:dev'];
     watch(files, tasks);
 }
 
 ///////////////////// Watch Tasks /////////////////////
+
+gulp.task('watch:scripts', function () {
+    console.log('cc');
+    gulp.watch(path.join(SRC_DIR, '**', '*.ts'), gulp.series('template:ts:dev', 'build:ts:dev'))
+        .on('change', function (event) {
+            console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        });
+});
+
+gulp.task('watch:sass', sassWatch);
+gulp.task('watch:index', indexWatch);
+gulp.task('watch:others', othersWatch);
+gulp.task('watch', callback =>
+    gulp.parallel('watch:scripts', function (done) {
+        done();
+    })
+);

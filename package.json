@@ -38,6 +38,13 @@
     "gulp-template": "~4.0.0",
     "gulp-typescript": "~2.13.4",
     "gulp-useref": "~3.1.0",
+    "jasmine-core": "~2.4.1",
+    "karma": "~0.13.22",
+    "karma-coverage": "~1.0.0",
+    "karma-jasmine": "~1.0.2",
+    "karma-mocha-reporter": "~2.0.3",
+    "karma-phantomjs-launcher": "~1.0.0",
+    "phantomjs-prebuilt": "~2.1.7",
     "typescript": "~1.8.10",
     "typings": "~0.8.1"
   }

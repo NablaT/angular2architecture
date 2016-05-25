@@ -24,14 +24,15 @@ export const LIBS_DEPENDENCIES = [
 
 ///////////////////// Directories Paths /////////////////////
 
-export const DIST_DIR   = 'dist';
-export const SRC_DIR    = 'src';
-export const APP_SRC    = path.join(SRC_DIR, 'app');
-export const STYLES_SRC = path.join(SRC_DIR, 'styles');
-export const ASSETS_SRC = path.join(SRC_DIR, 'assets');
-export const DEV_DIR    = path.join(DIST_DIR, 'dev');
-export const PROD_DIR   = path.join(DIST_DIR, 'prod');
-export const TMP_DIR    = path.join(DIST_DIR, 'tmp');
+export const DIST_DIR     = 'dist';
+export const SRC_DIR      = 'src';
+export const APP_SRC      = path.join(SRC_DIR, 'app');
+export const STYLES_SRC   = path.join(SRC_DIR, 'styles');
+export const ASSETS_SRC   = path.join(SRC_DIR, 'assets');
+export const DEV_DIR      = path.join(DIST_DIR, 'dev');
+export const PROD_DIR     = path.join(DIST_DIR, 'prod');
+export const TMP_DIR      = path.join(DIST_DIR, 'tmp');
+export const TEMPLATE_DIR = path.join(DIST_DIR, 'template');
 
 export const ALL_FILES        = 'src/**/*';
 export const TYPESCRIPT_FILES = 'src/**/*.ts';

@@ -1,44 +1,39 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import HubRegistry from 'gulp-hub';
-import cp from 'child_process';
-
-const hub = new HubRegistry(['gulp/tasks/**/*.js']);
+import runSequence from 'run-sequence';
+import requireDir from 'require-dir';
 
 const plugins = gulpLoadPlugins();
 
-gulp.task('karma:tdd:dev', function (done) {
-    return cp.execFile('gulp karma:dev');
+requireDir('./gulp/tasks/dev');
+requireDir('./gulp/tasks/prod');
+
+gulp.task('karma:tdd:dev', plugins.shell.task(['start gulp karma:dev']));
+
+gulp.task('build:js:dev', (callback) => {
+    runSequence('template:ts:dev', 'build:ts:dev', callback);
 });
 
-gulp.task('build:dev',
-          gulp.series('clean:dev',
-                      gulp.parallel('build:assets:dev',
-                                    'build:html:dev',
-                                    'build:sass:dev',
-                                    gulp.series('template:ts:dev', 'build:ts:dev'),
-                                    'copy:systemjs:dev'),
-                      'build:index:dev',
-                      gulp.parallel('server:dev', 'karma:tdd:dev'),
-                      function (done) {
-                          done();
-                      }
-          )
-);
+gulp.task('build:dev', (callback) => {
+    runSequence('clean:dev',
+                ['build:assets:dev', 'build:html:dev', 'build:sass:dev', 'build:js:dev', 'copy:systemjs:dev'],
+                'build:index:dev',
+                callback);
+});
 
-gulp.task('serve', gulp.series('build:dev', 'watch', function (done) {
-    done();
-}));
+gulp.task('serve', (callback) => {
+    runSequence('build:dev', 'server:dev', ['watch:dev', 'karma:tdd:dev'], callback);
+});
 
-gulp.task('build:prod',
-          gulp.series('clean:prod',
-                      gulp.parallel('copy:prod', 'ts:prod', 'sass:prod'),
-                      'inject:prod',
-                      'useref:prod',
-                      function (done) {
-                          done();
-                      }));
+/*gulp.task('build:prod',
+ gulp.series('clean:prod',
+ gulp.parallel('copy:prod', 'ts:prod', 'sass:prod'),
+ 'inject:prod',
+ 'useref:prod',
+ function (done) {
+ done();
+ }));
 
-gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {
-    done();
-}));
+ gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {
+ done();
+ }));*/

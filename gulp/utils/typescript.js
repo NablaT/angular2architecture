@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import path from 'path';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {getBrowserSync} from './browsersync';
 
@@ -25,5 +26,5 @@ export function typescript (filesArray, destinationDirectory, enableProdMode = f
                .pipe(plugins.typescript(_tsProject))
                .pipe(plugins.if(!enableProdMode, plugins.sourcemaps.write('./')))
                .pipe(gulp.dest(destinationDirectory))
-               .pipe(bs.stream({match: "**/*.js"}));
+               .pipe(bs.stream({match: path.join('**', '*.js')}));
 }

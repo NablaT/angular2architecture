@@ -25,15 +25,19 @@ gulp.task('serve', (callback) => {
     runSequence('build:dev', 'server:dev', ['watch:dev', 'karma:tdd:dev'], callback);
 });
 
-/*gulp.task('build:prod',
- gulp.series('clean:prod',
- gulp.parallel('copy:prod', 'ts:prod', 'sass:prod'),
- 'inject:prod',
- 'useref:prod',
- function (done) {
- done();
- }));
+gulp.task('build:prod', (callback) => {
+    runSequence('clean:prod',
+                ['build:assets:prod',
+                    'build:styles:prod',
+                    'template:html:prod',
+                    'template:sass:prod',
+                    'template:ts:prod'],
+                'build:ts:prod',
+                'karma:prod',
+                'clean:tests:prod',
+                callback);
+});
 
- gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {
+/* gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {
  done();
  }));*/

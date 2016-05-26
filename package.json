@@ -51,6 +51,7 @@
     "require-dir": "~0.3.0",
     "run-sequence": "~1.2.1",
     "slash": "~1.0.0",
+    "systemjs-builder": "~0.15.18",
     "typescript": "~1.8.10",
     "typings": "~0.8.1"
   }

@@ -29,8 +29,9 @@
         packages['@angular/' + pkgName] = {main: pkgName + '.umd.js', defaultExtension: 'js'};
     });
     var config = {
-        map     : map,
-        packages: packages
+        defaultJSExtensions: true,
+        map                : map,
+        packages           : packages
     };
     System.config(config);
 })(this);

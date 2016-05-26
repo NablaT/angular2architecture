@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import {
     NPM_DEPENDENCIES,
-    JS_PROD_NPM_BUNDLE,
+    JS_PROD_LIBS_BUNDLE,
     JS_PROD_DIR
 } from '../../gulp.conf';
 import gulpLoadPlugins from 'gulp-load-plugins';
@@ -15,11 +15,11 @@ function getNpmDependencies () {
     return NPM_DEPENDENCIES.map(dep => dep.src);
 }
 
-gulp.task('bundles.npm.prod', () => {
+gulp.task('bundles.libs.prod', () => {
     return gulp.src(getNpmDependencies())
                .pipe(plugins.uglify({
                    mangle: false
                }))
-               .pipe(plugins.concat(JS_PROD_NPM_BUNDLE))
+               .pipe(plugins.concat(JS_PROD_LIBS_BUNDLE))
                .pipe(gulp.dest(JS_PROD_DIR));
 });

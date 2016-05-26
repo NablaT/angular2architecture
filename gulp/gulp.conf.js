@@ -16,7 +16,7 @@ export const DEV_DIR            = path.join(DIST_DIR, 'dev');
 export const PROD_DIR           = path.join(DIST_DIR, 'prod');
 export const TMP_DIR            = path.join(DIST_DIR, 'tmp');
 export const TEMPLATE_DIR       = path.join(DIST_DIR, 'template');
-export const JS_PROD_NPM_BUNDLE = 'shims.js';
+export const JS_PROD_LIBS_BUNDLE = 'libs.js';
 export const JS_PROD_DIR        = path.join(PROD_DIR, 'js');
 
 export const NPM_DEPENDENCIES = [

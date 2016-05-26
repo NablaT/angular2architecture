@@ -29,8 +29,10 @@ export const NPM_DEPENDENCIES = [
     {src: 'node_modules/systemjs/dist/system.src.js', inject: 'libs'}
 ];
 
-const CSS_INJECTABLES = [
-    {src: path.join(STYLES_SRC, 'main.css'), inject: 'css'}
+const PROJECT_DEPENDENCIES = [
+    {src: path.join(STYLES_SRC, 'main.css'), inject: 'project'},
+    {src: path.join(SRC_DIR, 'systemjs.config.js'), inject: 'project'}
+
 ];
 
-export const DEPENDENCIES = NPM_DEPENDENCIES.concat(CSS_INJECTABLES);
+export const DEPENDENCIES = NPM_DEPENDENCIES.concat(PROJECT_DEPENDENCIES);

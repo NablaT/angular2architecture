@@ -14,7 +14,7 @@ gulp.task('build:index:dev', function () {
     return gulp.src(path.join(SRC_DIR, INDEX))
                .pipe(inject(DEV_DIR, 'shims'))
                .pipe(inject(DEV_DIR, 'libs'))
-               .pipe(inject(DEV_DIR, 'css'))
+               .pipe(inject(DEV_DIR, 'project'))
                .pipe(gulp.dest(DEV_DIR))
                .pipe(bs.stream());
 });

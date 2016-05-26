@@ -36,8 +36,7 @@ gulp.task('build:prod', (callback) => {
         'karma:prod',
         'build:ts:prod',
         'clean:tests:prod',
-        'bundles.libs.prod',
-        'bundles.app.prod',
+        ['bundles.libs.prod', 'bundles.app.prod', 'bundle:css:prod'],
         callback);
 });
 

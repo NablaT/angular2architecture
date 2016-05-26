@@ -17,8 +17,10 @@ export const PROD_DIR            = path.join(DIST_DIR, 'prod');
 export const TMP_DIR             = path.join(DIST_DIR, 'tmp');
 export const TEMPLATE_DIR        = path.join(DIST_DIR, 'template');
 export const JS_PROD_LIBS_BUNDLE = 'libs.js';
+export const JS_PROD_APP_BUNDLE  = 'app.js';
 export const CSS_PROD_BUNDLE     = 'all.css';
 export const JS_PROD_DIR         = path.join(PROD_DIR, 'js');
+export const CSS_PROD_DIR        = path.join(PROD_DIR, 'css');
 
 export const NPM_DEPENDENCIES = [
     {src: 'node_modules/core-js/client/shim.min.js', inject: 'shims'},

@@ -3,8 +3,9 @@ import path from 'path';
 import Builder from 'systemjs-builder';
 import {
     SRC_DIR,
-    PROD_DIR,
-    TMP_DIR
+    JS_PROD_DIR,
+    TMP_DIR,
+    JS_PROD_APP_BUNDLE
 } from '../../gulp.conf';
 
 const BUNDLER_OPTIONS = {
@@ -16,6 +17,8 @@ const BUNDLER_OPTIONS = {
 gulp.task('bundles.app.prod', (done) => {
     let builder = new Builder('./', path.join(SRC_DIR, 'systemjs.config.js'));
 
-    builder.buildStatic(path.join(TMP_DIR, 'app', 'main.js'), path.join(PROD_DIR, 'js', 'app.js'), BUNDLER_OPTIONS)
+    builder.buildStatic(path.join(TMP_DIR, 'app', 'main.js'),
+        path.join(JS_PROD_DIR, JS_PROD_APP_BUNDLE),
+        BUNDLER_OPTIONS)
            .then(() => done());
 });

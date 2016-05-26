@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import path from 'path';
 import {
-    PROD_DIR,
+    CSS_PROD_DIR,
     TMP_DIR,
     CSS_PROD_BUNDLE
 } from '../../gulp.conf';
@@ -12,5 +12,5 @@ const plugins = gulpLoadPlugins();
 gulp.task('bundle:css:prod', () => {
     return gulp.src(path.join(TMP_DIR, 'styles', '**', '*'))
                .pipe(plugins.concatCss(CSS_PROD_BUNDLE))
-               .pipe(gulp.dest(path.join(PROD_DIR, 'css')));
+               .pipe(gulp.dest(CSS_PROD_DIR));
 });

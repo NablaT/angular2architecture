@@ -37,6 +37,7 @@ gulp.task('build:prod', (callback) => {
         'build:ts:prod',
         'clean:tests:prod',
         ['bundles.libs.prod', 'bundles.app.prod', 'bundle:css:prod'],
+        'build:index:prod',
         callback);
 });
 

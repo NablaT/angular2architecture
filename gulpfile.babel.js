@@ -16,9 +16,9 @@ gulp.task('build:js:dev', (callback) => {
 
 gulp.task('build:dev', (callback) => {
     runSequence('clean:dev',
-                ['build:assets:dev', 'build:html:dev', 'build:sass:dev', 'build:js:dev', 'copy:systemjs:dev'],
-                'build:index:dev',
-                callback);
+        ['build:assets:dev', 'build:html:dev', 'build:sass:dev', 'build:js:dev', 'copy:systemjs:dev'],
+        'build:index:dev',
+        callback);
 });
 
 gulp.task('serve', (callback) => {
@@ -27,15 +27,17 @@ gulp.task('serve', (callback) => {
 
 gulp.task('build:prod', (callback) => {
     runSequence('clean:prod',
-                ['build:assets:prod',
-                    'build:styles:prod',
-                    'template:html:prod',
-                    'template:sass:prod',
-                    'template:ts:prod'],
-                'build:ts:prod',
-                'karma:prod',
-                'clean:tests:prod',
-                callback);
+        ['build:assets:prod',
+            'build:styles:prod',
+            'template:html:prod',
+            'template:sass:prod',
+            'template:ts:prod'],
+        'karma:ts:prod',
+        'karma:prod',
+        'build:ts:prod',
+        'clean:tests:prod',
+        'bundles.npm.prod',
+        callback);
 });
 
 /* gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {

@@ -20,13 +20,13 @@ export function getBrowserSync () {
  */
 export function init (destinationDirectory) {
     bs.init({
-                server       : {
-                    baseDir: destinationDirectory + '/',
-                    routes : {
-                        "/node_modules": "node_modules"
-                    }
-                },
-                injectChanges: true,
-                middleware   : [historyApiFallback()]
-            });
+        server       : {
+            baseDir: destinationDirectory + '/',
+            routes : {
+                "/node_modules": "node_modules"
+            }
+        },
+        injectChanges: true,
+        middleware   : [historyApiFallback()]
+    });
 }

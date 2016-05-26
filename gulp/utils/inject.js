@@ -11,7 +11,7 @@ const plugins = gulpLoadPlugins();
 
 export function inject (name, destinationDirectory) {
     return plugins.inject(gulp.src(getInjectablesDependenciesRef(name, destinationDirectory), {read: false}),
-                          {name, transform: transformPath(destinationDirectory)})
+        {name, transform: transformPath(destinationDirectory)})
 }
 
 /**

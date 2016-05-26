@@ -13,5 +13,5 @@ const plugins = gulpLoadPlugins();
 export function template (files, destinationDirectory, mode) {
     return gulp.src(files)
                .pipe(plugins.template({ENV: mode}))
-               .pipe(gulp.dest(destinationDirectory))
+               .pipe(gulp.dest(destinationDirectory));
 }

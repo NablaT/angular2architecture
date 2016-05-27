@@ -28,10 +28,12 @@
 <!-- inject:js -->
 <!-- endinject -->
 
+<% if (ENV === 'dev') { %>
 <script>
     System.import('app').catch(function (err) {
         console.error(err);
     });
 </script>
+<% } %>
 </body>
 </html>
